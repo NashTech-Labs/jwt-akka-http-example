@@ -22,15 +22,15 @@ trait JwtApi extends JwtApiHandler with AuthenticationHandler {
 
   val routes: Route =
     get {
-        path("getAllUsersName" / "admin") { ctx: RequestContext =>
-          val r: String = if (isVerifyWithRole(ctx.request, secretKey, "admin")) {
-            val allUsersName: ListBuffer[String] = getAllUserName()
-            s"user names are  ${allUsersName.toString()} "
-          } else {
-            "other users......"
-          }
-          ctx.complete(r)
-        } ~
+      path("getAllUsersName" / "admin") { ctx: RequestContext =>
+        val r: String = if (isVerifyWithRole(ctx.request, secretKey, "admin")) {
+          val allUsersName: ListBuffer[String] = getAllUserName()
+          s"user names are  ${allUsersName.toString()} "
+        } else {
+          "other users......"
+        }
+        ctx.complete(r)
+      } ~
         path("getUserDetail" / IntNumber) { (userId: Int) =>
           ctx: RequestContext =>
             val r: String = if (isVerify(ctx.request, secretKey)) {

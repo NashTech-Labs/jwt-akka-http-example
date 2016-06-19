@@ -13,15 +13,12 @@ case class Role(value: String) extends ClaimValue {
 }
 
 object Role extends ClaimField {
-  override def attemptApply(value: JsValue): Option[ClaimValue] =
-    value.asOpt[String].map(apply)
+  override def attemptApply(value: JsValue): Option[ClaimValue] = value.asOpt[String].map(apply)
 
   override val name = "role"
 }
 
-
 trait AuthenticationHandler {
-
 
   def isVerifyWithRole(req: HttpRequest, secretKey: String, role: String): Boolean = {
     val result = getAuthToken(req)

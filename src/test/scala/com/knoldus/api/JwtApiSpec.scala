@@ -49,7 +49,7 @@ class JwtApiSpec extends FlatSpec with Matchers with ScalatestRouteTest {
 
   it should "Able to access jwt protected uri " in {
     val responseOutput = """user names are  (ramesh,ranjan,other,1235) """
-    Get(s"/getUserDetail/1235").withHeaders(RawHeader("Authorization","eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJyYW1lc2gifQ.QUsOimu5p1NuMHfLiufcPeYnodNVqljxfxQ_02bW1RI")) ~> JwtApi.routes ~> check {
+    Get(s"/getUserDetail/1235").withHeaders(RawHeader("Authorization", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJyYW1lc2gifQ.QUsOimu5p1NuMHfLiufcPeYnodNVqljxfxQ_02bW1RI")) ~> JwtApi.routes ~> check {
       status shouldBe StatusCodes.OK
       responseAs[String] shouldBe responseOutput
     }
