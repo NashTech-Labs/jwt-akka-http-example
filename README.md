@@ -21,7 +21,7 @@ For more details please check [JWT Example Blog](https://blog.knoldus.com/2016/0
 -----------------------------------------------------------------------
 ### Now Play
 -----------------------------------------------------------------------
-* Clone the project into local system : `$ git clone git@github.com:anand-singh/jwt-akka-http-example.git` 
+* Clone the project into local system : `$ git clone git@github.com:knoldus/jwt-akka-http-example.git` 
 * Akka requires that you have [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) or later installed on your machine.
 * Install Activator or SBT if you do not have it already
 * Execute `sbt clean compile` to build the product
